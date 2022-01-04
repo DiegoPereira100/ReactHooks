@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
 
 function sum(a, b) {
 
-    
-    return a + b
+    const future = Date.now() + 2000
+    while(Date.now() < future) {}
+    return a + b 
 
 }
 
@@ -14,7 +15,7 @@ const UseMemo = props => {
     const [n2, setN2] = useState(0)
     const [n3, setN3] = useState(0)
 
-    const result = sum(n1, n2)
+    const result = useMemo(() => sum(n1, n2), [n1, n2])
 
     return (
         <div className="UseMemo">
@@ -24,11 +25,11 @@ const UseMemo = props => {
 
             <div className='center'>
                 <input type="number" className="input" 
-                    value={n1} onChange={e => setN1(e.target.value)} />
+                    value={n1} onChange={e => setN1(parseInt(e.target.value))} />
                 <input type="number" className="input" 
-                    value={n2} onChange={e => setN2(e.target.value)} />
+                    value={n2} onChange={e => setN2(parseInt(e.target.value))} />
                 <input type="number" className="input" 
-                    value={n3} onChange={e => setN3(e.target.value)} />
+                    value={n3} onChange={e => setN3(parseInt(e.target.value))} />
                 <span className="text">{result}</span>
             </div>
         </div>

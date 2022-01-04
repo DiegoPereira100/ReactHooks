@@ -4,7 +4,7 @@ import SectionTitle from '../../components/layout/SectionTitle'
 import { AppContext } from '../../data/Store'
 
 import DataContext from '../../data/DataContext'
-import { useEffect } from 'react/cjs/react.development'
+
 
 const UseContext = (props) => {
 
